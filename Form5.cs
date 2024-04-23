@@ -31,11 +31,12 @@ namespace Koleso
                     string sqlExpression = "UPDATE clients SET Status = @State WHERE SNL like @FullName ";
                     using (SqliteCommand command = new SqliteCommand(sqlExpression, connection))
                     {
-                       
+                        // Добавьте параметры
                         command.Parameters.AddWithValue("@State", Status.Text);
                         command.Parameters.AddWithValue("@FullName", SNL.Text);
                         command.Parameters.AddWithValue("@NumbCar", CarNumb.Text);
 
+                        // Выполните запрос
                         command.ExecuteNonQuery();
                     }
                  
@@ -59,31 +60,30 @@ namespace Koleso
 
                 using (SqliteCommand command = new SqliteCommand(sqlExpression, connection))
                 {
-                    
+                    // Добавьте параметры
                     command.Parameters.AddWithValue("@FullName", SNL.Text);
                     command.Parameters.AddWithValue("@NumbCar", CarNumb.Text);
-                    
+                     // Выполните запрос
                     command.ExecuteNonQuery();
                 
 
-                    using (SqliteDataReader reader = command.ExecuteReader())
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows) // если есть данные
                     {
-                        if (reader.HasRows) 
-                        {
-                                while (reader.Read())   
-                                {
-                                    SNL.Text = (string)reader.GetValue(0);
-                                    CarNumb.Text = (string)reader.GetValue(3);
-                                }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ничего не найдено", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                            SNL.Text = null;
-                            CarNumb.Text = null;
-                        }
+                            while (reader.Read())   // построчно считываем данные
+                            {
+                                SNL.Text = (string)reader.GetValue(0);
+                                CarNumb.Text = (string)reader.GetValue(3);
+                            }
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Ничего не найдено", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        SNL.Text = null;
+                        CarNumb.Text = null;
+                    }
+                }
                 }
             }
 
