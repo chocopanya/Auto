@@ -10,24 +10,19 @@ using System.Windows.Forms;
 
 namespace Koleso
 {
-    public partial class Form2 : System.Windows.Forms.Form
+    public partial class Form6 : Form
     {
-        public Form2()
+        public Form6()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void ok_Click(object sender, EventArgs e)
         {
-            string psw = "12345678";
+            string psw = "87654321";
             if (psw == password.Text)
             {
-                Form5 Reg = new Form5();
+                Form4 Reg = new Form4();
                 Reg.ShowDialog();
             }
 
@@ -36,11 +31,6 @@ namespace Koleso
                 MessageBox.Show("Неверный пароль", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }
             this.Close();
-        }
-
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

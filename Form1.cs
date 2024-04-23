@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
@@ -35,7 +35,7 @@ namespace Koleso
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            Form2 Reg = new Form2();
+            Form6 Reg = new Form6();
             Reg.ShowDialog();
         }
     }
