@@ -10,20 +10,13 @@ using System.Windows.Forms;
 
 namespace Koleso
 {
+
     public partial class Form2 : System.Windows.Forms.Form
     {
+
         public Form2()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void ok_Click(object sender, EventArgs e)
@@ -44,9 +37,5 @@ namespace Koleso
             this.Close();
         }
 
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
