@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Koleso
 {
-    public partial class Form2 : Form
+    public partial class Form2 : System.Windows.Forms.Form
     {
         public Form2()
         {
@@ -31,8 +31,7 @@ namespace Koleso
             string psw = "12345678";
             if (psw == password.Text)
             {
-                
-                Form3 Reg = new Form3();
+                Form5 Reg = new Form5();
                 Reg.ShowDialog();
             }
             
@@ -40,10 +39,14 @@ namespace Koleso
             else
             {
                 Form4 Reg = new Form4();
-                Reg.ShowDialog();
-                
+                Reg.ShowDialog();                
             }
             this.Close();
+        }
+
+        private void password_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
